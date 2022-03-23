@@ -1,0 +1,25 @@
+.forgotPassword{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+a{
+    color: rgba(200, 200, 200, 0.8);
+  font-weight: 500;
+  text-decoration: none;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    color: #84B026;  
+}
+
+.signup{
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

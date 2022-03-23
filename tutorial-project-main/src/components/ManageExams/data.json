@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "ExamId": "111",
+    "ExamTitle": "Maths-1",
+    "StartDate": "22/03/2022",
+    "EndDate": "23/03/2022"
+  },
+  {
+    "id": 2,
+    "ExamId": "112",
+    "ExamTitle": "Maths-2",
+    "StartDate": "25/03/2022",
+    "EndDate": "27/03/2022"
+  },
+  {
+    "id": 3,
+    "ExamId": "113",
+    "ExamTitle": "Java",
+    "StartDate": "21/03/2022",
+    "EndDate": "25/03/2022"
+  },
+  {
+    "id": 4,
+    "ExamId": "114",
+    "ExamTitle": "OS",
+    "StartDate": "29/03/2022",
+    "EndDate": "31/03/2022"
+  }
+]

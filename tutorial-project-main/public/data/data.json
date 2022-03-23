@@ -1,0 +1,16 @@
+{
+    "data":[
+    {
+    "emailId": "20881@gmail.com",
+    "password": "Rahulrahul",
+    "role": "Admin"
+  },
+  {
+    "emailId": "21999@gmail.com",
+    "password": "Amiramir",
+    "role": "Student"
+    
+  }
+  
+]
+}
