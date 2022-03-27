@@ -18,7 +18,7 @@ export default function Button1() {
       <Stack direction="horizontal" gap={3}>
        <div className="bg-light border">Recent Users</div>
        <div className="bg-light border ms-auto"></div>
-       <div><Button className="ButtonStyle" variant="primary">View all</Button>{' '}</div>
+       <div className="justify-content-end"><Button className="ButtonStyle" variant="primary">View all</Button>{' '}</div>
       </Stack>
     </Container>
   );

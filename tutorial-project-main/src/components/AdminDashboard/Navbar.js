@@ -25,11 +25,11 @@ export default function NavBar() {
                   <Nav.Link href="#features">Exams</Nav.Link>
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
-                <Navbar.Collapse className="justify-content-end">
-                <NavDropdown title="xxxx(Admin Name)" id="dropdown-basic-button">
-                  <NavDropdown.Item href="#logout">Log out <FiLogOut /></NavDropdown.Item>
-                  <NavDropdown.Item href="#switchtootheraccount">Switch to other account <FiUser /></NavDropdown.Item>
-                </NavDropdown>
+                <Navbar.Collapse className="justify-content-end" bg="primary" variant="dark" >
+                <NavDropdown title="xxxx(Admin Name)" >
+          <NavDropdown.Item href="#logout">Log out <FiLogOut /></NavDropdown.Item>
+          <NavDropdown.Item href="#switchtootheraccount">Switch to other account <FiUser /></NavDropdown.Item>
+        </NavDropdown>
                   
                 </Navbar.Collapse>
               </Container>

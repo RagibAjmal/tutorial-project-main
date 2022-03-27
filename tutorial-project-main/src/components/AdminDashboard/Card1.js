@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaAddressBook } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
-
+import { GrGroup } from "react-icons/gr";
 
 import {
   Table,
@@ -26,7 +26,7 @@ export default function Card1() {
                   <Col style={{ height: '9rem' }}>
                     <Card style={{ width: '8rem' }} responsive>
                       <Card.Body>
-                        <Card.Title><FaAddressBook />Total Students</Card.Title>
+                        <Card.Title><GrGroup />Total Students</Card.Title>
                         <Card.Text>xxxx</Card.Text>
                       </Card.Body>
                     </Card>

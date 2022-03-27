@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-
+import { FiLogOut, FiUser } from "react-icons/fi";
 
 import {
-  Table,
   Col,
   Row,
   Nav,
   Container,
   Navbar,
+  NavDropdown
+ 
 } from 'react-bootstrap';
 
 export default function NavBar() {
@@ -26,8 +27,17 @@ export default function NavBar() {
                   <Nav.Link href="#features">Exams</Nav.Link>
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
-                <Navbar.Collapse className="justify-content-end">
-                  <Navbar.Text>xxxx(Student Name)</Navbar.Text>
+                <Navbar.Collapse className="justify-content-end" bg="primary" variant="dark" >
+                <Navbar.Text>xxxx(Admin name)</Navbar.Text>
+                
+                <NavDropdown id="dropdown-basic-button">
+
+          <NavDropdown.Item href="#logout">Log out <FiLogOut /></NavDropdown.Item>
+
+          <NavDropdown.Item href="#switchtootheraccount">Switch to other account <FiUser /></NavDropdown.Item>
+
+        </NavDropdown>
+                 
                 </Navbar.Collapse>
               </Container>
             </Navbar>
