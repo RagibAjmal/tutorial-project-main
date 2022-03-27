@@ -4,12 +4,19 @@ import {useEffect} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import "./LoginPage.css"
 import {useNavigate} from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { AuthActions } from "../Store/Auth";
+
 
 const LoginPage = () => {
+    const Auth = useSelector((state) => state.Auth.Authenticated);
+    const Role = useSelector((state) => state.Auth.Role);
+    const dispatch = useDispatch();
     const [email,setEmail]= useState("")
     const [password,setPassword]= useState("")
     const [data,setData]=useState("")
     const navigate = useNavigate()
+    console.log(Auth,"isdklfjdlks")
     
     async function handleSubmit(event) {
         event.preventDefault();
@@ -25,28 +32,23 @@ const LoginPage = () => {
             for (let key in data) {
             if( data[key].emailId === email){
                 if( data[key].password === password){
+                    dispatch(AuthActions.Login());
                     if( data[key].role === "Admin"){
+                        dispatch(AuthActions.Admin());
                         navigate("../adminDashboard", { replace: true });
                     }
                     else if( data[key].role === "Student"){
-                        navigate("../studentDashboard", { replace: true });
+                        dispatch(AuthActions.Student());
+                         navigate("../app", { replace: true });
                     }
                 }
-            }
+            }console.log(Role);
         }
     }
         
     }
 
-    useEffect(() => {
-        fetch(`./data/data.json`)
-          .then(response => response.json())
-          .then(data => {
-            setData(data.data)
-          })
     
-          .catch(() => console.log("error"))
-      }, [])
     return (
         <>
             <Container>
