@@ -29,11 +29,8 @@ export default function NavBar() {
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                 <NavDropdown title="xxxx(Admin Name)" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.1">Log out</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Switch to other accout</NavDropdown.Item>
         </NavDropdown>
                   
                 </Navbar.Collapse>
