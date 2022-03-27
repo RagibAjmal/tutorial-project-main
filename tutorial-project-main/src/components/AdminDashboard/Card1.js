@@ -24,7 +24,7 @@ export default function Card1() {
               <Container>
                 <Row>
                   <Col style={{ height: '9rem' }}>
-                    <Card style={{ width: '9rem' }} responsive>
+                    <Card className="text-center" style={{ width: '9rem' }} responsive>
                       <Card.Body>
                         <Card.Title><GrGroup /></Card.Title>
                         <Card.Title>Total Students</Card.Title>
