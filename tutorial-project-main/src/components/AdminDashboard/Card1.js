@@ -24,9 +24,10 @@ export default function Card1() {
               <Container>
                 <Row>
                   <Col style={{ height: '9rem' }}>
-                    <Card style={{ width: '8rem' }} responsive>
+                    <Card style={{ width: '9rem' }} responsive>
                       <Card.Body>
-                        <Card.Title><GrGroup />Total Students</Card.Title>
+                        <Card.Title><GrGroup /></Card.Title>
+                        <Card.Title>Total Students</Card.Title>
                         <Card.Text>xxxx</Card.Text>
                       </Card.Body>
                     </Card>
