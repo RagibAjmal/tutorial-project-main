@@ -8,5 +8,5 @@ export const ProtectedRoute = ({
 }) => {
 
   const Auth = useSelector((state) => state.Auth.Authenticated);
-  return <div>{Auth ? children : <Navigate to="/loginPage" />}</div>;
+  return <div>{Auth === true ? children : <Navigate to="/loginPage" />}</div>;
 };
