@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+
 import {
   
   Button,
@@ -7,7 +7,7 @@ import {
   Container,
   
 } from 'react-bootstrap';
-import Stack from 'react-bootstrap/Stack'
+import {Stack} from 'react-bootstrap'
 
 export default function Button1() {
   return (
