@@ -1,0 +1,25 @@
+.Rowspace {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: red; */
+  }
+  .Cardstyle {
+    width: 10rem;
+    height: 0.5rem;
+    display:flex;
+  }
+  .ButtonStyle {
+    width: 9rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    background-color: rgb(122, 151, 216);
+    font-size: 18px;
+    border-radius: 10px;
+  }
+  .ButtonStyle:hover {
+    background-color: rgb(27, 23, 231);
+  }
+  

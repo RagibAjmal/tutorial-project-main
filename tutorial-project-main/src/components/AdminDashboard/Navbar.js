@@ -9,6 +9,7 @@ import {
   Nav,
   Container,
   Navbar,
+  NavDropdown
 } from 'react-bootstrap';
 
 export default function NavBar() {
@@ -27,7 +28,14 @@ export default function NavBar() {
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
-                  <Navbar.Text>xxxx(Admin Name)</Navbar.Text>
+                <NavDropdown title="xxxx(Admin Name)" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+                  
                 </Navbar.Collapse>
               </Container>
             </Navbar>

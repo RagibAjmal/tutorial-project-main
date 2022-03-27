@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { FaAddressBook } from 'react-icons/fa';
+import { IconContext } from 'react-icons/lib';
 
 
 import {
@@ -16,16 +17,16 @@ import {
 } from 'react-bootstrap';
 
 export default function Card1() {
+  
 
   return (
-
-
-<Container>
+    <IconContext.Provider value={{size: "1.5em"}}>
+              <Container>
                 <Row>
                   <Col style={{ height: '9rem' }}>
                     <Card style={{ width: '8rem' }} responsive>
                       <Card.Body>
-                        <Card.Title>Total Students</Card.Title>
+                        <Card.Title><FaAddressBook />Total Students</Card.Title>
                         <Card.Text>xxxx</Card.Text>
                       </Card.Body>
                     </Card>
@@ -48,5 +49,7 @@ export default function Card1() {
                   </Col>
                 </Row>
               </Container>
+              </IconContext.Provider>
   );
+  
 }
