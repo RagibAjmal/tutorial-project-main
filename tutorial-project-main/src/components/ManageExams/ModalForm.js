@@ -38,14 +38,13 @@ function ModalForm() {
   });
 
   return (
-    <Container>
-      <Row className="my-5">
-        <Stack direction="horizontal" gap={3}>
-          <div className="bg-light border">
-            <Button variant="outline-dark">Manage Exams</Button>{' '}
-          </div>
+<Container className="my-3">
+<Row>
+<Col>
+<Button variant="outline-dark">Manage Exams</Button>
+</Col>
 
-          <div className="bg-light border ms-auto">
+<Col className="bg-light border ms-auto">
             <Button
               variant="primary"
               size="sm"
@@ -54,8 +53,8 @@ function ModalForm() {
             >
               Add New Exam
             </Button>{' '}
-          </div>
-        </Stack>
+         
+        
 
         <Modal show={modal}>
           <Formik
@@ -116,7 +115,9 @@ function ModalForm() {
             </Form>
           </Formik>
         </Modal>
+        </Col>
       </Row>
+      
       <Row className="mb-4">
       <Col>
             <form>

@@ -22,4 +22,9 @@
   .ButtonStyle:hover {
     background-color: rgb(27, 23, 231);
   }
+  .view-all-button {
+    width: 120px;
+    float: right;
+  }
+
   

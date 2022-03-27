@@ -18,16 +18,20 @@ import Stack from 'react-bootstrap/Stack'
 
 export default function Button2() {
   return (
-    <Container>
-      <Stack direction="horizontal" gap={3}>
-        <div className="bg-light border">
-          <Button variant="outline-secondary">Recent Exams</Button>{' '}
-        </div>
-        <div className="bg-light border ms-auto">
-          <Button variant="primary">View all</Button>{' '}
-        </div>
-      </Stack>
-      <br />
+    <Container className="my-3">
+      <Row>
+        <Col>
+          <Button variant="outline-dark">Recent Orders</Button>
+        </Col>
+        <Col className="justify-content-end">
+        
+          
+            <Button size="sm" className="view-all-button">
+              View All
+            </Button>
+          
+        </Col>
+      </Row>
     </Container>
   );
 }

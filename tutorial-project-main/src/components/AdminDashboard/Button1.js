@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-
+import './App.css';
 import {
   
   Button,
-  
+  Row,
   Container,
+  Col
 
 
   
@@ -14,12 +15,21 @@ import { Stack } from 'react-bootstrap'
 export default function Button1() {
   return (
     
-    <Container>
-      <Stack direction="horizontal" gap={3}>
-       <div className="bg-light border">Recent Users</div>
-       <div className="bg-light border ms-auto"></div>
-       <div className="justify-content-end"><Button className="ButtonStyle" variant="primary">View all</Button>{' '}</div>
-      </Stack>
+    
+      <Container className="my-3">
+      <Row>
+        <Col>
+          <Button variant="outline-dark">Recent Orders</Button>
+        </Col>
+        <Col className="justify-content-end">
+        
+          
+            <Button size="sm" className="view-all-button">
+              View All
+            </Button>
+          
+        </Col>
+      </Row>
     </Container>
   );
 }

@@ -23,8 +23,8 @@ export default function Card1() {
     <IconContext.Provider value={{size: "1.5em"}}>
               <Container>
                 <Row>
-                  <Col style={{ height: '9rem' }}>
-                    <Card className="text-center" style={{ width: '9rem' }} responsive>
+                  <Col style={{ height: '7rem' }}>
+                    <Card  style={{ width: '9rem' }} responsive>
                       <Card.Body>
                         <Card.Title><GrGroup /></Card.Title>
                         <Card.Title>Total Students</Card.Title>
