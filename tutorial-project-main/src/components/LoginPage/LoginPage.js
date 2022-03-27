@@ -26,10 +26,10 @@ const LoginPage = () => {
             if( data[key].emailId === email){
                 if( data[key].password === password){
                     if( data[key].role === "Admin"){
-                        navigate("../registerPage", { replace: true });
+                        navigate("../adminDashboard", { replace: true });
                     }
                     else if( data[key].role === "Student"){
-                        navigate("../app", { replace: true });
+                        navigate("../studentDashboard", { replace: true });
                     }
                 }
             }
