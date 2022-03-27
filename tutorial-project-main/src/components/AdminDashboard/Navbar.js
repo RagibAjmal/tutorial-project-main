@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
-
-
+import { FiLogOut, FiUser } from "react-icons/fi";
 import {
   Table,
   Col,
@@ -28,10 +26,10 @@ export default function NavBar() {
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
-                <NavDropdown title="xxxx(Admin Name)" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Log out</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Switch to other accout</NavDropdown.Item>
-        </NavDropdown>
+                <NavDropdown title="xxxx(Admin Name)" id="dropdown-basic-button">
+                  <NavDropdown.Item href="#logout">Log out <FiLogOut /></NavDropdown.Item>
+                  <NavDropdown.Item href="#switchtootheraccount">Switch to other account <FiUser /></NavDropdown.Item>
+                </NavDropdown>
                   
                 </Navbar.Collapse>
               </Container>
