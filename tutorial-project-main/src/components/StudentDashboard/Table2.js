@@ -95,11 +95,7 @@ function TableMain() {
             {contacts.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
-                  <EditableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
+                  <div/>
                 ) : (
                   <ReadOnlyRow
                     contact={contact}
