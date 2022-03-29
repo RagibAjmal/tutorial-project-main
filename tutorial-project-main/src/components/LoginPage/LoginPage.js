@@ -1,6 +1,5 @@
 import React from 'react';
 import {useState} from 'react';
-import {useEffect} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import "./LoginPage.css"
 import {useNavigate} from 'react-router-dom';

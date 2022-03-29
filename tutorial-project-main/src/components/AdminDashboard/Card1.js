@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FaAddressBook } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { GrGroup } from "react-icons/gr";
-
+import { BsPencilSquare, BsPencil } from "react-icons/bs";
+import './App.css';
 import {
   Table,
   Col,
@@ -24,7 +24,7 @@ export default function Card1() {
               <Container>
                 <Row>
                   <Col style={{ height: '7rem' }}>
-                    <Card  style={{ width: '9rem' }} responsive>
+                    <Card className="text-center card1" style={{ width: '9rem' }} responsive>
                       <Card.Body>
                         <Card.Title><GrGroup /></Card.Title>
                         <Card.Title>Total Students</Card.Title>
@@ -32,17 +32,19 @@ export default function Card1() {
                       </Card.Body>
                     </Card>
                   </Col>
-                  <Col style={{ height: '9rem' }}>
-                    <Card style={{ width: '8rem' }} responsive>
+                  <Col style={{ height: '7rem' }}>
+                    <Card className="text-center card1" style={{ width: '9rem' }} responsive>
                       <Card.Body>
+                        <Card.Title><BsPencilSquare /></Card.Title>
                         <Card.Title>Total Exams</Card.Title>
                         <Card.Text>xxxx</Card.Text>
                       </Card.Body>
                     </Card>
                   </Col>
-                  <Col style={{ height: '9rem' }}>
-                    <Card style={{ width: '8rem' }} responsive>
+                  <Col style={{ height: '7rem' }}>
+                    <Card className="text-center card1" style={{ width: '9rem' }} responsive>
                       <Card.Body>
+                      <Card.Title><BsPencil /></Card.Title>
                         <Card.Title>Total Attemps</Card.Title>
                         <Card.Text>xxxx</Card.Text>
                       </Card.Body>

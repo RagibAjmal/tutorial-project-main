@@ -17,9 +17,9 @@ export default function Button1() {
     
     
       <Container className="my-3">
-      <Row>
+      <Row className="button1">
         <Col>
-          <Button variant="outline-dark">Recent Orders</Button>
+          <Button variant="outline-dark">Recent Users</Button>
         </Col>
         <Col className="justify-content-end">
         

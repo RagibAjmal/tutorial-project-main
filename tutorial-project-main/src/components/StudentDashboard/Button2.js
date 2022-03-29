@@ -20,7 +20,7 @@ export default function Button2() {
     <Container className="my-3">
       <Row>
         <Col>
-          <Button variant="outline-dark">Recent Orders</Button>
+          <Button variant="outline-dark">My Exams</Button>
         </Col>
         <Col className="justify-content-end">
         

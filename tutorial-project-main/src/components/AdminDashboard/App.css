@@ -26,5 +26,17 @@
     width: 120px;
     float: right;
   }
+  .button1 {
+    padding-top: 3em;
+  }
+  .dropdownbar {
+    float: right;
+  }
 
-  
+  .adminname {
+    margin-right: 20px;
+
+  letter-spacing: 2px;
+
+  color: white;
+  }

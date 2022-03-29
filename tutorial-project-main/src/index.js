@@ -23,13 +23,13 @@ ReactDOM.render(
      <Provider store={Store}>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="loginPage" element={ <LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
+      {/* <Route path="loginPage" element={ <LoginPage />} /> */}
       <Route path="registerPage" element={<RegisterPage />}/>
-      <Route path="adminDashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-      <Route path="studentDashboard" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
-      <Route path="manageUsers" element={<ProtectedRoute><ManageUsers /></ProtectedRoute>} />
-      <Route path="manageExams" element={<ProtectedRoute><ManageExams /></ProtectedRoute>} /> 
+      <Route path="adminDashboard" element={<AdminDashboard />} />
+      <Route path="studentDashboard" element={<StudentDashboard />} />
+      <Route path="manageUsers" element={<ManageUsers />} />
+      <Route path="manageExams" element={<ManageExams />} /> 
     </Routes></BrowserRouter></Provider>
   </React.StrictMode>,
   document.getElementById('root')
