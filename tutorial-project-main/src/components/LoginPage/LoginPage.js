@@ -38,7 +38,7 @@ const LoginPage = () => {
                     }
                     else if( data[key].role === "Student"){
                         dispatch(AuthActions.Student());
-                         navigate("../app", { replace: true });
+                         navigate("../studentDashboard", { replace: true });
                     }
                 }
             }console.log(Role);
@@ -56,22 +56,25 @@ const LoginPage = () => {
                     <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
+                                <Form.Label>Email address*</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)} required/>
                             </Form.Group>
-
+                            <br />
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label>Password*</Form.Label>
                                 <Form.Control type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} required/>
                             </Form.Group>
 
-                            <Form.Label className="forgotPassword"><a href='#'>Forgot password</a></Form.Label>
+                            <br />
 
+                            <Form.Label className="forgotPassword"><a href='forgotPassword'>Forgot password</a></Form.Label>
+                            <br />
                             <Button variant="success btn-block" type="submit">
                                 Login
                             </Button>
+                            <br />
 
-                            <Form.Label className="signup">Don't have an account?&nbsp;<a href='/Register'>Signup</a></Form.Label>
+                            <Form.Label className="signup">Don't have an account?&nbsp;<a href='/registerPage'>Signup</a></Form.Label>
         
                             
                         </Form >
