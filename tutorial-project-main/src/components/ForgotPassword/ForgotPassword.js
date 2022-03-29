@@ -1,36 +1,22 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import Alert from "react-bootstrap/Alert";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function ForgotPassword() {
-	const [show, setShow] = useState(false);
+export default function Forgot() {
 	const [emailId, setemailId] = useState();
+	const diffToast = () => {
+		toast.success(
+			"Your email has been successfully sent. Please reset your password.",
+			{ position: "top-center" }
+		);
+	};
 	return (
 		<>
 			<Container>
-				{show && (
-					<>
-						<Alert show={show} variant="success">
-							<Alert.Heading>Success</Alert.Heading>
-							<p>
-								Your email has been successfully sent. Please reset your
-								password.
-							</p>
-							<hr />
-							<div className="d-flex justify-content-end">
-								<Button
-									onClick={() => setShow(false)}
-									variant="outline-success"
-								>
-									Close
-								</Button>
-							</div>
-						</Alert>
-					</>
-				)}
 				<h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">
-					Please enter your email address.
+					Forgot Password
 				</h1>
 				<Row className="mt-1">
 					<Col
@@ -39,8 +25,14 @@ export default function ForgotPassword() {
 						sm={12}
 						className="p-5 m-auto shadow-sm rounded-lg"
 					>
-						<Form>
+						<Form onSubmit={() => {
+									diffToast();
+									setemailId("");
+								}}>
+
 							<Form.Group controlId="formBasicEmail">
+								<Form.Label>Please enter your email Address</Form.Label>
+
 								<Form.Control
 									value={emailId}
 									onChange={(e) => setemailId(e.target.value)}
@@ -53,13 +45,12 @@ export default function ForgotPassword() {
 
 							<Button
 								variant="success btn-block"
-								onClick={() => {
-									setShow(true);
-									setemailId("");
-								}}
+								type="submit"
+								
 							>
 								Continue
 							</Button>
+							<ToastContainer />
 						</Form>
 					</Col>
 				</Row>

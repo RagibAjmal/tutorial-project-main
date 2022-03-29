@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import data from "./examdata.json";
 import {
   Navbar,
   Nav,
@@ -9,9 +10,7 @@ import {
   Table,
   Button,
 } from "react-bootstrap";
-import { NavLink, Outlet, Link } from "react-router-dom";
-import axios from "axios";
-import "./AdminDashboardP.css";
+
 const AdminDashboardP = () => {
   const [recentScreen, setrecentScreen] = useState([10]);
   const [openScreen, setOpenScreen] = useState(2);
@@ -20,21 +19,6 @@ const AdminDashboardP = () => {
   const [recent, setrecent] = useState([3]);
   const [open, setOpen] = useState(2);
   const [condition, setCondition] = useState(true);
-
-  const step = async () => {
-    const current = await axios.get("http://localhost:3003/ausers");
-    setrecent(current.data);
-    // setrecentScreen(screens.data);
-    console.log(current);
-    //  return current;
-  };
-
-  const stepScreen = async () => {
-    const screens = await axios.get("http://localhost:3003/screens");
-    setrecentScreen(screens.data);
-    //console.log(current);
-    //  return current;
-  };
 
   useEffect(() => {
     step();
@@ -63,16 +47,6 @@ const AdminDashboardP = () => {
   return (
     <div>
       <Container>
-
-        
-<div class="card" style="width: 18rem;">
-  
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
         {/* <Row style={{marginTop:"40px"}}>
                         <Col sm={3}>
                             <Card>
@@ -138,21 +112,21 @@ const AdminDashboardP = () => {
             <Table bordered>
               <thead style={{ backgroundColor: "#1266F1", color: "white" }}>
                 <tr>
-                  <th>Id</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Gender</th>
-                  <th>Created</th>
+                  <th>Examid</th>
+                  <th>Title</th>
+                  <th>Attempts</th>
+                  <th>Score</th>
+                  <th>LastAttempt</th>
                 </tr>
               </thead>
               <tbody style={{ backgroundColor: "rgb(212, 237, 245)" }}>
-                {recent.slice(0, open).map((json) => (
+                {recent.slice(0, open).map((contact) => (
                   <tr>
-                    <td>{json.id}</td>
-                    <td>{json.name}</td>
-                    <td>{json.email}</td>
-                    <td>{json.gender}</td>
-                    <td>{json.created}</td>
+                    <td>{contact.ExamId}</td>
+                    <td>{contact.Title}</td>
+                    <td>{contact.Attempts}</td>
+                    <td>{contact.Score}</td>
+                    <td>{contact.LastAttempt}</td>
                   </tr>
                 ))}
               </tbody>
