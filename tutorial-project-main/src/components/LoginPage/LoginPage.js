@@ -3,12 +3,13 @@ import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+//import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AuthActions } from "../Store/Auth";
 
 const LoginPage = () => {
-  const Auth = useSelector((state) => state.Auth.Authenticated);
-  const Role = useSelector((state) => state.Auth.Role);
+//   const Auth = useSelector((state) => state.Auth.Authenticated);
+//   const Role = useSelector((state) => state.Auth.Role);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

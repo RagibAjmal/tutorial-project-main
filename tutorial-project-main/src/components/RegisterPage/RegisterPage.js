@@ -85,7 +85,7 @@ export default function RegisterPage() {
                   pattern="[6-9]{1}[0-9]{9}"
                   required
                   onChange={(e) => {
-                    if (e.target.value.length != 10) {
+                    if (e.target.value.length !== 10) {
                       e.target.setCustomValidity(
                         "Please enter your 10 digit mobile number"
                       );

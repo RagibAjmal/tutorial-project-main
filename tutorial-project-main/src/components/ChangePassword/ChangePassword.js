@@ -4,20 +4,32 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ChangePassword() {
-
-  const [password, setPassword] = useState("");
-  const diffToast = (event) => {
-    event.preventDefault();
+  const [newpassword1, setNewPassword1] = useState("");
+  const [newpassword2, setNewPassword2] = useState("");
+  const [same, setSame] = useState("none");
+  const navigate = useNavigate();
+  const diffToast = () => {
     toast.success("Your password has been successfully changed.", {
       position: "top-center",
     });
+    setTimeout(() => {
+      navigate("../studentDashboard", { replace: true });
+    }, 5500);
   };
 
   useEffect(() => {
     document.title = "Change Password";
-  }, []);
+    if (same !== "none") {
+      if (newpassword1 === newpassword2) {
+        setSame(true);
+      } else {
+        setSame(false);
+      }
+    }
+  }, [same,newpassword1, newpassword2]);
   return (
     <>
       <Container>
@@ -33,8 +45,10 @@ export default function ChangePassword() {
           >
             <Form
               onSubmit={(e) => {
-                diffToast(e);
-                setPassword("");
+                e.preventDefault();
+                if (same) {
+                  diffToast();
+                }
               }}
             >
               <Form.Group controlId="formBasicPassword">
@@ -47,9 +61,7 @@ export default function ChangePassword() {
                       e.target.setCustomValidity(
                         "Password must be atleast 8 digits"
                       );
-                      console.log(e.target.value.length);
                     }
-                    setPassword(e.target.value);
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
                   required
@@ -66,9 +78,8 @@ export default function ChangePassword() {
                       e.target.setCustomValidity(
                         "Password must be atleast 8 digits"
                       );
-                      console.log(e.target.value.length);
                     }
-                    setPassword(e.target.value);
+                    setNewPassword1(e.target.value);
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
                   required
@@ -85,20 +96,35 @@ export default function ChangePassword() {
                       e.target.setCustomValidity(
                         "Password must be atleast 8 digits"
                       );
-                      console.log(e.target.value.length);
                     }
-                    setPassword(e.target.value);
+                    setNewPassword2(e.target.value);
+                    if (same === "none") {
+                      setSame("");
+                    }
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
                   required
                 />
               </Form.Group>
               <br />
+              {same === false ? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  New Password doesn't Match <br></br>
+                </div>
+              ) : (
+                <></>
+              )}
+              <br></br>
               <Button variant="success btn-block" type="submit">
                 Submit
               </Button>
               <ToastContainer />
             </Form>
+            <div style={{textSize: "10px", textAlign: "center",padding:"10px"}}>
+            <a  href="/adminDashboard">Go Back</a></div>
           </Col>
         </Row>
       </Container>
