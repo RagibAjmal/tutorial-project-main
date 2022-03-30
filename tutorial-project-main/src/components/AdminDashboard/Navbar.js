@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { FiLogOut, FiUser } from "react-icons/fi";
-import {
-  Nav,
-  Container,
-  Navbar,
-  NavDropdown,
-  Dropdown
-} from "react-bootstrap";
+import { Nav, Container, Navbar, NavDropdown, Dropdown } from "react-bootstrap";
 
 export default function NavBar() {
   return (
@@ -19,23 +13,21 @@ export default function NavBar() {
             <Nav.Link href="#manageExams">Exams</Nav.Link>
             <Nav.Link href="#pricing">Reports</Nav.Link>
           </Nav>
-          <Navbar.Collapse
-            className="justify-content-end">
-          <Dropdown>
-    <Dropdown.Toggle variant="primary">
-      Admin Name
-    </Dropdown.Toggle>
+          <Navbar.Collapse className="justify-content-end">
+            <Dropdown>
+              <Dropdown.Toggle variant="primary">Admin Name</Dropdown.Toggle>
 
-    <Dropdown.Menu variant="primary">
-      
-      <Dropdown.Item href="#/logout">Log out <FiLogOut /></Dropdown.Item>
-      <Dropdown.Item href="#/logout">Change Password</Dropdown.Item>
-      <Dropdown.Item href="#/switchtootheraccount">Switch to other account <FiUser /></Dropdown.Item>
-      
-      
-    </Dropdown.Menu>
-  </Dropdown>
-  </Navbar.Collapse>   
+              <Dropdown.Menu variant="primary">
+                <Dropdown.Item href="#/logout">
+                  Log out <FiLogOut />
+                </Dropdown.Item>
+                <Dropdown.Item href="changePassword">Change Password</Dropdown.Item>
+                <Dropdown.Item href="#/switchtootheraccount">
+                  Switch to other account <FiUser />
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
       <br />

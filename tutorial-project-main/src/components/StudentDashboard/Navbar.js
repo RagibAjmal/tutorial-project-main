@@ -33,7 +33,7 @@ export default function NavBar() {
     </Dropdown.Toggle>
 
     <Dropdown.Menu variant="primary">
-      <Dropdown.Item href="#/logout">Log out <FiLogOut /></Dropdown.Item>
+      <Dropdown.Item href="/">Log out <FiLogOut /></Dropdown.Item>
       <Dropdown.Item href="#/switchtootheraccount">Switch to other account <FiUser /></Dropdown.Item>
       
       

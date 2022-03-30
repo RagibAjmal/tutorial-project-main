@@ -8,8 +8,12 @@ import { Button } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { useEffect } from "react";
 
 export default function SearchExam() {
+	useEffect(() => {
+		document.title = "Search Exams";
+	  }, []);
 	return (
 		<div>
 			<Container fluid>

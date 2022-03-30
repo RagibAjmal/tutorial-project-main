@@ -14,7 +14,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [data, setData] = useState("");
   const navigate = useNavigate();
-  const [verify,setVerify] = useState(false);
+  const [verify, setVerify] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -33,7 +33,7 @@ const LoginPage = () => {
             dispatch(AuthActions.Login());
             if (data[key].role === "Admin") {
               dispatch(AuthActions.Admin());
-              navigate("../adminDashboard", { replace: true });              
+              navigate("../adminDashboard", { replace: true });
             } else if (data[key].role === "Student") {
               dispatch(AuthActions.Student());
               navigate("../studentDashboard", { replace: true });
@@ -66,8 +66,12 @@ const LoginPage = () => {
                   placeholder="Enter email"
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  onInvalid={e => e.target.setCustomValidity('Please Enter Valid E-mail Address')}
-                  onInput={e => e.target.setCustomValidity('')}
+                  // onInvalid={(e) =>
+                  //   e.target.setCustomValidity(
+                  //     "Please Enter Valid E-mail Address"
+                  //   )
+                  // }
+                  // onInput={(e) => e.target.setCustomValidity("")}
                 />
               </Form.Group>
               <br />
@@ -76,18 +80,31 @@ const LoginPage = () => {
                 <Form.Control
                   type="password"
                   placeholder="Password"
-                  onChange={(e) =>{
-                    if (e.target.value.length < 8)
-                    {
-                      e.target.setCustomValidity('Password must be greater than 8 digits');
-                      console.log(e.target.value.length )
+                  onChange={(e) => {
+                    if (e.target.value.length < 8) {
+                      e.target.setCustomValidity(
+                        "Password must be atleast 8 digits"
+                      );
+                      console.log(e.target.value.length);
                     }
-                     setPassword(e.target.value)}}
-                     onInput={e => e.target.setCustomValidity('')}
-                  
+                    setPassword(e.target.value);
+                  }}
+                  onInput={(e) => e.target.setCustomValidity("")}
                   required
                 />
-              </Form.Group>{verify? <div>wrong password</div>: <></>}
+              </Form.Group>
+
+              {verify ? (
+                <div
+                  className="text-danger"
+                  style={{ "text-size": "10px", "text-align": "center" }}
+                >
+                  <br />
+                  Invalid Username or Password
+                </div>
+              ) : (
+                <></>
+              )}
 
               <br />
 
@@ -99,7 +116,6 @@ const LoginPage = () => {
                 Login
               </Button>
               <br />
-              
 
               <Form.Label className="signup">
                 Don't have an account?&nbsp;<a href="/registerPage">Signup</a>
