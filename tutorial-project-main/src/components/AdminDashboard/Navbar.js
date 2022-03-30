@@ -9,8 +9,8 @@ export default function NavBar() {
         <Container>
           <Navbar.Brand href="#home">Online Exam Portal</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#manageUsers">User</Nav.Link>
-            <Nav.Link href="#manageExams">Exams</Nav.Link>
+            <Nav.Link href="manageUsers">User</Nav.Link>
+            <Nav.Link href="manageExams">Exams</Nav.Link>
             <Nav.Link href="#pricing">Reports</Nav.Link>
           </Nav>
           <Navbar.Collapse className="justify-content-end">
@@ -18,10 +18,12 @@ export default function NavBar() {
               <Dropdown.Toggle variant="primary">Admin Name</Dropdown.Toggle>
 
               <Dropdown.Menu variant="primary">
-                <Dropdown.Item href="#/logout">
+                <Dropdown.Item href="/">
                   Log out <FiLogOut />
                 </Dropdown.Item>
-                <Dropdown.Item href="changePassword">Change Password</Dropdown.Item>
+                <Dropdown.Item href="changePassword">
+                  Change Password
+                </Dropdown.Item>
                 <Dropdown.Item href="#/switchtootheraccount">
                   Switch to other account <FiUser />
                 </Dropdown.Item>

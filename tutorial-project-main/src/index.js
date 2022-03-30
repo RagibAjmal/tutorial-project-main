@@ -29,7 +29,7 @@ ReactDOM.render(
           <Route path="adminDashboard" element={<AdminDashboard />} />
           <Route path="studentDashboard" element={<StudentDashboard />} />
           <Route path="manageUsers" element={<ManageUsers />} />
-          <Route path="manageExams" element={<ManageExams />} /> 
+          <Route path="123" element={<ManageExams />} /> 
           <Route path="forgotPassword" element={<ForgotPassword />} /> 
           <Route path="changePassword" element={<ChangePassword />} /> 
           <Route path="searchExam" element={<SearchExam />} /> 

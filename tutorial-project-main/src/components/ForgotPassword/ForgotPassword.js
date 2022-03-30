@@ -4,16 +4,22 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ForgotPassword() {
   const [emailId, setemailId] = useState();
+  const navigate = useNavigate();
   const diffToast = (event) => {
     event.preventDefault();
     toast.success(
       "Your email has been successfully sent. Please reset your password.",
       { position: "top-center" }
     );
+    setTimeout(() => {
+      navigate("../", { replace: true });
+    }, 5500);
   };
+
 
   useEffect(() => {
     document.title = "Forgot Password";

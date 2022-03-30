@@ -13,7 +13,7 @@ export default function NavBar() {
                 <Navbar.Brand href="#home">Online Exam Portal</Navbar.Brand>
                 <Nav className="me-auto">
                   <Nav.Link href="#home">User</Nav.Link>
-                  <Nav.Link href="#features">Exams</Nav.Link>
+                  <Nav.Link href="manageExams">Exams</Nav.Link>
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
                 <Navbar.Collapse
