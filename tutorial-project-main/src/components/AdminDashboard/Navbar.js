@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { FiLogOut, FiUser } from "react-icons/fi";
-import { Nav, Container, Navbar, NavDropdown, Dropdown } from "react-bootstrap";
+import { Nav, Container, Navbar, Dropdown } from "react-bootstrap";
 
 export default function NavBar() {
   return (

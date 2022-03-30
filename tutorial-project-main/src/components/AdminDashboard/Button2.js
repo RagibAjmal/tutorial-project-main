@@ -1,20 +1,5 @@
-import React, { useState } from 'react';
-
-
-
-import {
-  Table,
-  Col,
-  Row,
-  Button,
-  Form,
-  FormControl,
-  Nav,
-  Container,
-  Navbar,
-} from 'react-bootstrap';
-import Stack from 'react-bootstrap/Stack'
-
+import React from "react";
+import { Col, Row, Button, Container } from "react-bootstrap";
 
 export default function Button2() {
   return (
@@ -24,12 +9,9 @@ export default function Button2() {
           <Button variant="outline-dark">Recent Exams</Button>
         </Col>
         <Col className="justify-content-end">
-        
-          
-            <Button size="sm" className="view-all-button">
-              View All
-            </Button>
-          
+          <Button size="sm" className="view-all-button">
+            View All
+          </Button>
         </Col>
       </Row>
     </Container>

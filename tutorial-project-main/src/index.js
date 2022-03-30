@@ -16,7 +16,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ChangePassword from "./components/ChangePassword/ChangePassword";
 import SearchExam from "./components/SearchAttendExams/SearchExam";
 
-import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+// import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import data from './data.json';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';

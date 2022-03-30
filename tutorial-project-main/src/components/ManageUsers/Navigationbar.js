@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from "react";
 import { FiLogOut, FiUser } from "react-icons/fi";
-import {
-  Table,
-  Col,
-  Row,
-  Nav,
-  Container,
-  Navbar,
-  NavDropdown
-} from 'react-bootstrap';
+import { Col, Row, Nav, Container, Navbar, NavDropdown } from "react-bootstrap";
 
 export default function NavBar() {
-
   return (
     <div>
       <Container fluid>
@@ -25,26 +16,29 @@ export default function NavBar() {
                   <Nav.Link href="#features">Exams</Nav.Link>
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
-                <Navbar.Collapse className="justify-content-end" bg="primary" variant="dark" >
-                <NavDropdown title="xxxx(Admin Name)">
-          <NavDropdown.Item href="#logout">Log out <FiLogOut /></NavDropdown.Item>
-          <NavDropdown.Item href="#switchtootheraccount">Switch to other account <FiUser /></NavDropdown.Item>
-        </NavDropdown>
-                  
+                <Navbar.Collapse
+                  className="justify-content-end"
+                  bg="primary"
+                  variant="dark"
+                >
+                  <NavDropdown title="xxxx(Admin Name)">
+                    <NavDropdown.Item href="#logout">
+                      Log out <FiLogOut />
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#switchtootheraccount">
+                      Switch to other account <FiUser />
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
             <br />
-            
-      
-        
           </Col>
-          </Row>
-          </Container>
-          </div>
+        </Row>
+      </Container>
+    </div>
   );
 }
-
 
 //  import React, { useState } from "react";
 //  import "./App.css";
