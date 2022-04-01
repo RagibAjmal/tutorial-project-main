@@ -1,31 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-.App {
-  width: 50vw;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'Nunito', sans-serif;
-}
-
-.App .openModalBtn {
-  width: 100px;
-  height: 20px;
-  border: none;
-  border-radius: 3px;
-  background-color: cornflowerblue;
-  color: white;
-  cursor: pointer;
-}
-body {
-  padding: 0;
-  margin: 0;
-}
 
 .view-all-button {
   width: 120px;
   float: right;
 }
 .dropdown1 {
-  float: left;
+  float: right;
 }

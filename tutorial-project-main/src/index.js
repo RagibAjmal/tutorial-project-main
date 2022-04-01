@@ -16,7 +16,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ChangePassword from "./components/ChangePassword/ChangePassword";
 import SearchExam from "./components/SearchAttendExams/SearchExam";
 
-// import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,15 +24,58 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          {/* <Route path="loginPage" element={ <LoginPage />} /> */}
           <Route path="registerPage" element={<RegisterPage />} />
-          <Route path="adminDashboard" element={<AdminDashboard />} />
-          <Route path="studentDashboard" element={<StudentDashboard />} />
-          <Route path="manageUsers" element={<ManageUsers />} />
-          <Route path="123" element={<ManageExams />} /> 
-          <Route path="forgotPassword" element={<ForgotPassword />} /> 
-          <Route path="changePassword" element={<ChangePassword />} /> 
-          <Route path="searchExam" element={<SearchExam />} /> 
+          <Route
+            path="adminDashboard"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="studentDashboard"
+            element={
+              <ProtectedRoute>
+                <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="manageUsers"
+            element={
+              <ProtectedRoute>
+                <ManageUsers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="manageExams"
+            element={
+              <ProtectedRoute>
+                <ManageExams />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="forgotPassword" element={<ForgotPassword />} />
+          <Route
+            path="changePassword"
+            element={
+              <ProtectedRoute>
+                <ChangePassword />
+              </ProtectedRoute>
+            }
+          />
+           
+          <Route
+            path="searchExam"
+            element={
+              <ProtectedRoute>
+                <SearchExam />
+              </ProtectedRoute>
+            }
+          />
+           
         </Routes>
       </BrowserRouter>
     </Provider>

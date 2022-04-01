@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, FormControl } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Container, FormControl, Row } from "react-bootstrap";
 
 function SearchBar({ data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -11,7 +11,7 @@ function SearchBar({ data }) {
     const newFilter = data.filter((value) => {
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
-    if (searchWord === '') {
+    if (searchWord === "") {
       setFilteredData([]);
     } else {
       setFilteredData(newFilter);

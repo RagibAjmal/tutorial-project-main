@@ -1,12 +1,9 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { Navigate } from 'react-router-dom';
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-export const ProtectedRoute = ({
-  children
-}) => {
-
+export const ProtectedRoute = ({ children }) => {
   const Auth = useSelector((state) => state.Auth.Authenticated);
-  return <div>{Auth === true ? children : <Navigate to="/loginPage" />}</div>;
+  console.log(Auth);
+  return <>{Auth ? children : <Navigate to="/" />}</>;
 };

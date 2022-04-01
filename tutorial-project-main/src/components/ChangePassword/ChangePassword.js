@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Navigationbar from '../ManageUsers/Navigationbar';
+
 export default function ChangePassword() {
   const [newpassword1, setNewPassword1] = useState("");
   const [newpassword2, setNewPassword2] = useState("");
@@ -16,7 +18,7 @@ export default function ChangePassword() {
       position: "top-center",
     });
     setTimeout(() => {
-      navigate("../studentDashboard", { replace: true });
+      navigate("../adminDashboard", { replace: true });
     }, 5500);
   };
 
@@ -32,6 +34,7 @@ export default function ChangePassword() {
   }, [same,newpassword1, newpassword2]);
   return (
     <>
+    <Navigationbar></Navigationbar>
       <Container>
         <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">
           Change Password

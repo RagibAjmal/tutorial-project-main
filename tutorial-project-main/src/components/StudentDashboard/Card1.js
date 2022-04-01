@@ -1,11 +1,9 @@
 import React from "react";
-import "./App.css";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { BsGraphUp, BsPencil } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
-
-import { BsPencil, BsGraphUp } from "react-icons/bs";
 import { RiBarChartFill } from "react-icons/ri";
-
-import { Col, Row, Card, Container } from "react-bootstrap";
+import "./App.css";
 
 export default function Card1() {
   return (

@@ -1,8 +1,11 @@
 import React from "react";
 import { FiLogOut, FiUser } from "react-icons/fi";
 import { Col, Row, Nav, Container, Navbar, NavDropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { AuthActions } from "../Store/Auth";
 
 export default function NavBar() {
+  const dispatch = useDispatch();
   return (
     <div>
       <Container fluid>
@@ -12,7 +15,7 @@ export default function NavBar() {
               <Container>
                 <Navbar.Brand href="#home">Online Exam Portal</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="#home">User</Nav.Link>
+                  <Nav.Link href="#home" active>User</Nav.Link>
                   <Nav.Link href="manageExams">Exams</Nav.Link>
                   <Nav.Link href="#pricing">Reports</Nav.Link>
                 </Nav>
@@ -22,12 +25,13 @@ export default function NavBar() {
                   variant="dark"
                 >
                   <NavDropdown title="xxxx(Admin Name)">
-                    <NavDropdown.Item href="#logout">
+                    <NavDropdown.Item onClick={()=>dispatch(AuthActions.Logout())}>
                       Log out <FiLogOut />
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#switchtootheraccount">
                       Switch to other account <FiUser />
                     </NavDropdown.Item>
+                    
                   </NavDropdown>
                 </Navbar.Collapse>
               </Container>

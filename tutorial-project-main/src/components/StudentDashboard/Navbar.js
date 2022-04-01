@@ -1,8 +1,7 @@
 import React from "react";
-import "./App.css";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { FiLogOut, FiUser } from "react-icons/fi";
-
-import { Nav, Container, Navbar, Dropdown } from "react-bootstrap";
+import "./App.css";
 
 export default function NavBar() {
   return (
@@ -12,7 +11,7 @@ export default function NavBar() {
           <Navbar.Brand href="#home">Online Exam Portal</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">User</Nav.Link>
-            <Nav.Link href="searchExam">Exams</Nav.Link>
+            <Nav.Link href="#features">Exams</Nav.Link>
             <Nav.Link href="#reports">Reports</Nav.Link>
           </Nav>
           <Navbar.Collapse className="justify-content-end">
@@ -20,7 +19,7 @@ export default function NavBar() {
               <Dropdown.Toggle variant="primary">Student Name</Dropdown.Toggle>
 
               <Dropdown.Menu variant="primary">
-                <Dropdown.Item href="/">
+                <Dropdown.Item href="#/logout">
                   Log out <FiLogOut />
                 </Dropdown.Item>
                 <Dropdown.Item href="#/switchtootheraccount">

@@ -1,21 +1,21 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import "./LoginPage.css";
-import { useNavigate } from "react-router-dom";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { AuthActions } from "../Store/Auth";
+import "./LoginPage.css";
 
 const LoginPage = () => {
-//   const Auth = useSelector((state) => state.Auth.Authenticated);
-//   const Role = useSelector((state) => state.Auth.Role);
+  const Auth = useSelector((state) => state.Auth.Authenticated);
+  // const Role = useSelector((state) => state.Auth.Role);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const [verify, setVerify] = useState(false);
+  console.log(Auth, "check");
 
   async function handleSubmit(event) {
     event.preventDefault();

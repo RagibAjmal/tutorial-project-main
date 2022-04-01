@@ -1,8 +1,11 @@
 import React from "react";
 import { FiLogOut, FiUser } from "react-icons/fi";
 import { Nav, Container, Navbar, Dropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { AuthActions } from "../Store/Auth";
 
 export default function NavBar() {
+  const dispatch = useDispatch();
   return (
     <div>
       <Navbar bg="primary" variant="dark">
@@ -18,14 +21,11 @@ export default function NavBar() {
               <Dropdown.Toggle variant="primary">Admin Name</Dropdown.Toggle>
 
               <Dropdown.Menu variant="primary">
-                <Dropdown.Item href="/">
+                <Dropdown.Item onClick={() => dispatch(AuthActions.Logout())}>
                   Log out <FiLogOut />
                 </Dropdown.Item>
-                <Dropdown.Item href="changePassword">
-                  Change Password
-                </Dropdown.Item>
-                <Dropdown.Item href="#/switchtootheraccount">
-                  Switch to other account <FiUser />
+                <Dropdown.Item href="/changePassword">
+                  Change Password <FiUser />
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

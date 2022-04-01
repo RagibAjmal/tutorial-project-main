@@ -20,7 +20,6 @@ export default function ForgotPassword() {
     }, 5500);
   };
 
-
   useEffect(() => {
     document.title = "Forgot Password";
   }, []);

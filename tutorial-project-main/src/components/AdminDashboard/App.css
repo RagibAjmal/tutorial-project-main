@@ -28,15 +28,32 @@
   }
   .button1 {
     padding-top: 3em;
+    margin-top: 3em;
   }
   .dropdownbar {
     float: right;
   }
 
-  .adminname {
-    margin-right: 20px;
-
-  letter-spacing: 2px;
-
-  color: white;
+  .t-head {
+    background-color:#007aff;
   }
+
+  .Cardstyle {
+    background-color: rgb(17, 0, 255);
+  }
+
+  .styling2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  /* .stylecard3 {
+    margin-bottom: 5em;
+    
+  } */
+  /* .styling1 {
+    display: flex;
+    flex-direction: column;
+  padding: 10px;
+  overflow-wrap: break-word;
+  } */

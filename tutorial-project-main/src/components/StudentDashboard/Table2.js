@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import data from './examdata.json';
 import { Container, Table } from 'react-bootstrap';
 const App = () => {
-  const contacts = useState(data);
+  const [contacts, setContacts] = useState(data);
   return (
     <Container>
       <div>
