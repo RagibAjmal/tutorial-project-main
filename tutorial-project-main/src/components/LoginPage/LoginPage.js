@@ -17,21 +17,15 @@ const LoginPage = () => {
   const [verify, setVerify] = useState(false);
   console.log(Auth, "check");
 
-  async function handleSubmit(event) {
+function handleSubmit(event) {
     event.preventDefault();
-    await fetch(`./data/data.json`)
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data.data);
-      })
-
-      .catch(() => console.log("error"));
-
+    
     if (data) {
       for (let key in data) {
         if (data[key].emailId === email) {
           if (data[key].password === password) {
             dispatch(AuthActions.Login());
+            console.log("das")
             if (data[key].role === "Admin") {
               dispatch(AuthActions.Admin());
               navigate("../adminDashboard", { replace: true });
@@ -48,6 +42,12 @@ const LoginPage = () => {
 
   useEffect(() => {
     document.title = "Login Page";
+    fetch(`./data/data.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data.data);
+      })
+      .catch(() => console.log("error"));
   }, []);
 
   return (
@@ -102,7 +102,7 @@ const LoginPage = () => {
               {verify ? (
                 <div
                   className="text-danger"
-                  style={{ "text-size": "10px", "text-align": "center" }}
+                  style={{ textSize: "10px", textAlign: "center" }}
                 >
                   <br />
                   Invalid Username or Password
