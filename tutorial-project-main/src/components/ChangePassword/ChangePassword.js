@@ -10,10 +10,12 @@ import Navigationbar from '../ManageUsers/Navigationbar';
 
 export default function ChangePassword() {
 
-  const [oldpassword, setOldPassword] = useState("");
+  const [oldPassword, setOldPassword] = useState("");  
+  const [newPassword1, setNewPassword1] = useState("");
+  const [newPassword2, setNewPassword2] = useState("");
   const [verifyOldPassword, setVerifyOldPassword] = useState(false);
-  const [newpassword1, setNewPassword1] = useState("");
-  const [newpassword2, setNewPassword2] = useState("");
+  const [verifyNewPassword1, setVerifyNewPassword1] = useState("");
+  const [verifyNewPassword2, setVerifyNewPassword2] = useState("");
   const [same, setSame] = useState("none");
   const navigate = useNavigate();
   const diffToast = () => {
@@ -24,17 +26,32 @@ export default function ChangePassword() {
       navigate("../adminDashboard", { replace: true });
     }, 5500);
   };
+  const submit=(e)=>{
+    e.preventDefault();
+    if (oldPassword.length<8){
+      setVerifyOldPassword(true)
+    }
+    else if ( newPassword1.length<8 ){
+      setVerifyNewPassword1(true)
+    }
+    else if (newPassword2.length<8){
+      setVerifyNewPassword2(true)
+    }
+    else if (same) {
+      diffToast();
+    }
+  }
 
   useEffect(() => {
     document.title = "Change Password";
     if (same !== "none") {
-      if (newpassword1 === newpassword2) {
+      if (newPassword1 === newPassword2) {
         setSame(true);
       } else {
         setSame(false);
       }
     }
-  }, [same,newpassword1, newpassword2]);
+  }, [same,newPassword1, newPassword2]);
   return (
     <>
     <Navigationbar></Navigationbar>
@@ -50,15 +67,7 @@ export default function ChangePassword() {
             className="p-5 m-auto shadow-sm rounded-lg"
           >
             <Form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (oldpassword.length<8){
-                  setVerifyOldPassword(true)
-                }
-                else{if (same) {
-                  diffToast();
-                }
-              }}}
+              onSubmit={(e) => submit(e)}
             >
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Enter your current Password*</Form.Label>
@@ -93,16 +102,25 @@ export default function ChangePassword() {
                   type="password"
                   placeholder="New Password"
                   onChange={(e) => {
-                    if (e.target.value.length < 8) {
-                      e.target.setCustomValidity(
-                        "Password must be atleast 8 digits"
-                      );
+                    if (e.target.value.length >= 8) {
+                      setVerifyNewPassword1(false)                                            
                     }
-                    setNewPassword1(e.target.value);
+                    setNewPassword1(e.target.value)
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
                   
                 />
+                {verifyNewPassword1 ? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  <br />
+                  Please Enter a valid Password
+                </div>
+              ) : (
+                <></>
+              )}
               </Form.Group>
               <br />
               <Form.Group controlId="formBasicPassword">
@@ -111,10 +129,8 @@ export default function ChangePassword() {
                   type="password"
                   placeholder="Retype Password"
                   onChange={(e) => {
-                    if (e.target.value.length < 8) {
-                      e.target.setCustomValidity(
-                        "Password must be atleast 8 digits"
-                      );
+                    if (e.target.value.length >= 8) {
+                      setVerifyNewPassword2(false)                                            
                     }
                     setNewPassword2(e.target.value);
                     if (same === "none") {
@@ -124,6 +140,17 @@ export default function ChangePassword() {
                   onInput={(e) => e.target.setCustomValidity("")}
 
                 />
+                {verifyNewPassword2 ? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  <br />
+                  Please Enter a valid Password
+                </div>
+              ) : (
+                <></>
+              )}
               </Form.Group>
               <br />
               {same === false ? (
