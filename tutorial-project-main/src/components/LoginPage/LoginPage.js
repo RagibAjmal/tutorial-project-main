@@ -14,12 +14,20 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [data, setData] = useState("");
   const navigate = useNavigate();
-  const [verify, setVerify] = useState(false);
-  console.log(Auth, "check");
+  const [verifyPassword, setVerifyPassword] = useState(false);
+  const [verifyEmail, setVerifyEmail] = useState(false);
+  const [verifyEmailPassword, setVerifyEmailPassword] = useState(false);
+
 
 function handleSubmit(event) {
     event.preventDefault();
-    
+    if (email===""){
+      setVerifyEmail(true)
+    }
+    else if(password.length < 8){
+      setVerifyPassword(true)
+    }
+    else{
     if (data) {
       for (let key in data) {
         if (data[key].emailId === email) {
@@ -37,9 +45,9 @@ function handleSubmit(event) {
         }
       }
     }
-    setVerify(true);
+    setVerifyEmailPassword(true);
   }
-
+}
   useEffect(() => {
     document.title = "Login Page";
     fetch(`./data/data.json`)
@@ -69,16 +77,27 @@ function handleSubmit(event) {
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  // onInvalid={(e) =>
-                  //   e.target.setCustomValidity(
-                  //     "Please Enter Valid E-mail Address"
-                  //   )
-                  // }
+                  onChange={(e) => {
+                    setVerifyEmail(false);
+                    setEmail(e.target.value)}}
+                  onInvalid={() =>{
+                    console.log("wewerewr")
+                     setVerifyEmail(true)
+                 }}
                   // onInput={(e) => e.target.setCustomValidity("")}
                 />
               </Form.Group>
+              {verifyEmail ? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  <br />
+                  Please Enter a valid Email 
+                </div>
+              ) : (
+                <></>
+              )}
               <br />
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password*</Form.Label>
@@ -86,26 +105,34 @@ function handleSubmit(event) {
                   type="password"
                   placeholder="Password"
                   onChange={(e) => {
-                    if (e.target.value.length < 8) {
-                      e.target.setCustomValidity(
-                        "Password must be atleast 8 digits"
-                      );
-                      console.log(e.target.value.length);
+                    if (e.target.value.length >= 8) {
+                      setVerifyPassword(false)
                     }
                     setPassword(e.target.value);
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
-                  required
+                  
                 />
               </Form.Group>
 
-              {verify ? (
+              {verifyPassword ? (
                 <div
                   className="text-danger"
                   style={{ textSize: "10px", textAlign: "center" }}
                 >
                   <br />
-                  Invalid Username or Password
+                  Password must be atleast 8 digits
+                </div>
+              ) : (
+                <></>
+              )}
+              {verifyEmailPassword? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  <br />
+                  Invalid Username or Passsword 
                 </div>
               ) : (
                 <></>
