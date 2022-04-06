@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 import Navigationbar from '../ManageUsers/Navigationbar';
 
 export default function ChangePassword() {
+
+  const [oldpassword, setOldPassword] = useState("");
+  const [verifyOldPassword, setVerifyOldPassword] = useState(false);
   const [newpassword1, setNewPassword1] = useState("");
   const [newpassword2, setNewPassword2] = useState("");
   const [same, setSame] = useState("none");
@@ -49,10 +52,13 @@ export default function ChangePassword() {
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (same) {
+                if (oldpassword.length<8){
+                  setVerifyOldPassword(true)
+                }
+                else{if (same) {
                   diffToast();
                 }
-              }}
+              }}}
             >
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Enter your current Password*</Form.Label>
@@ -60,15 +66,25 @@ export default function ChangePassword() {
                   type="password"
                   placeholder="Current Password"
                   onChange={(e) => {
-                    if (e.target.value.length < 8) {
-                      e.target.setCustomValidity(
-                        "Password must be atleast 8 digits"
-                      );
+                    if (e.target.value.length >= 8) {
+                      setVerifyOldPassword(false)                                            
                     }
+                    setOldPassword(e.target.value)
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
-                  required
+                  
                 />
+                 {verifyOldPassword ? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  <br />
+                  Please Enter a valid Password
+                </div>
+              ) : (
+                <></>
+              )}
               </Form.Group>
               <br />
               <Form.Group controlId="formBasicPassword">
@@ -85,7 +101,7 @@ export default function ChangePassword() {
                     setNewPassword1(e.target.value);
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
-                  required
+                  
                 />
               </Form.Group>
               <br />
@@ -106,7 +122,7 @@ export default function ChangePassword() {
                     }
                   }}
                   onInput={(e) => e.target.setCustomValidity("")}
-                  required
+
                 />
               </Form.Group>
               <br />
