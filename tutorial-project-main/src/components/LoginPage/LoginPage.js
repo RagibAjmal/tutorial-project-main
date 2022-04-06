@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AuthActions } from "../Store/Auth";
 import "./LoginPage.css";
+import validator from 'validator';
 
 const LoginPage = () => {
   const Auth = useSelector((state) => state.Auth.Authenticated);
@@ -15,19 +16,17 @@ const LoginPage = () => {
   const [data, setData] = useState("");
   const navigate = useNavigate();
   const [verifyPassword, setVerifyPassword] = useState(false);
-  const [verifyEmail, setVerifyEmail] = useState(false);
+  const [verifyEmail, setVerifyEmail] = useState("none");
   const [verifyEmailPassword, setVerifyEmailPassword] = useState(false);
 
 
 function handleSubmit(event) {
     event.preventDefault();
-    if (email===""){
-      setVerifyEmail(true)
-    }
-    else if(password.length < 8){
+    if (verifyEmail==="none"){setVerifyEmail(true)}
+    else if(!verifyEmail===true && password.length < 8){
       setVerifyPassword(true)
     }
-    else{
+    else if (verifyEmail===false){
     if (data) {
       for (let key in data) {
         if (data[key].emailId === email) {
@@ -75,19 +74,19 @@ function handleSubmit(event) {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address*</Form.Label>
                 <Form.Control
-                  type="email"
-                  placeholder="Enter email"
                   onChange={(e) => {
-                    setVerifyEmail(false);
+                    if (validator.isEmail(e.target.value) === false){ 
+                    setVerifyEmail(true);}
+                    else {
+                      setVerifyEmail(false)
+                    }
                     setEmail(e.target.value)}}
-                  onInvalid={() =>{
-                    console.log("wewerewr")
-                     setVerifyEmail(true)
-                 }}
-                  // onInput={(e) => e.target.setCustomValidity("")}
+                  
+                  type="text"
+                  placeholder="Enter email"
                 />
               </Form.Group>
-              {verifyEmail ? (
+              {verifyEmail === true ? (
                 <div
                   className="text-danger"
                   style={{ textSize: "10px", textAlign: "center" }}

@@ -5,12 +5,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import validator from 'validator';
 
 export default function ForgotPassword() {
-  const [emailId, setemailId] = useState();
+  const [emailId, setemailId] = useState("");
+  const [verifyEmail, setVerifyEmail] = useState("none");
   const navigate = useNavigate();
-  const diffToast = (event) => {
-    event.preventDefault();
+  const diffToast = () => {
+    
     toast.success(
       "Your email has been successfully sent. Please reset your password.",
       { position: "top-center" }
@@ -37,9 +39,11 @@ export default function ForgotPassword() {
             className="p-5 m-auto shadow-sm rounded-lg"
           >
             <Form
-              onSubmit={(e) => {
-                diffToast(e);
-                setemailId("");
+              onSubmit={(event) => {
+                event.preventDefault();
+                if(verifyEmail===false){
+                diffToast();
+                setemailId("");}
               }}
             >
               <Form.Group controlId="formBasicEmail">
@@ -47,11 +51,29 @@ export default function ForgotPassword() {
 
                 <Form.Control
                   value={emailId}
-                  onChange={(e) => setemailId(e.target.value)}
-                  type="email"
+                  onChange={(e) => {
+                    if (validator.isEmail(e.target.value) === false){ 
+                    setVerifyEmail(true);}
+                    else {
+                      setVerifyEmail(false)
+                    }
+                    setemailId(e.target.value)}}
+                  
+                  type="text"
                   placeholder="Enter email"
-                  required
+                  
                 />
+                {verifyEmail === true ? (
+                <div
+                  className="text-danger"
+                  style={{ textSize: "10px", textAlign: "center" }}
+                >
+                  <br />
+                  Please Enter a Valid Email
+                </div>
+              ) : (
+                <></>
+              )}
               </Form.Group>
               <br />
 
